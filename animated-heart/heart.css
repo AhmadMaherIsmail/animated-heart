@@ -1,0 +1,47 @@
+body {
+    /* Change the background color of the template and position the block */
+    background: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+.heart {
+    /* Position the block and design it accordingly */
+    width: 180px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #FF0000;
+    /* "transition" determines how long the animation takes place */
+    transition: 1s;
+    /* "transform-origin" where the animation shall take place initially */
+    transform-origin: right bottom;
+}
+
+.heart::before {
+    /* No content inside the block */
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    transition: 2s;
+    transform-origin: right bottom;
+}
+
+.heart:hover {
+    /* Rotation upon hover for only 45 degrees (small rotation) */
+    transform: rotate(45deg);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.heart:hover:before {
+    /* Rotation of the second part of the heart for a complete cycle 
+    then double the other to complete the heart */
+    background: #FF0000;
+    transform: rotate(450deg) translateY(100px);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
